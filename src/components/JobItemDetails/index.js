@@ -76,13 +76,14 @@ class JobItemDetails extends Component {
     const response = await fetch(url, options)
     if (response.ok === true) {
       const data = await response.json()
-      console.log(data)
+      // console.log(data)
       const updatedData = this.getFormattedData(data.job_details)
+      // console.log(updatedData)
       const updatedSimilarJobsData = data.similar_jobs.map(eachSimilarJob =>
         this.getFormattedSimilarData(eachSimilarJob),
       )
-      console.log(updatedData)
-      console.log(updatedSimilarJobsData)
+      // console.log(updatedData)
+      // console.log(updatedSimilarJobsData)
       this.setState({
         jobData: updatedData,
         similarJobsData: updatedSimilarJobsData,
@@ -114,6 +115,7 @@ class JobItemDetails extends Component {
 
         <button
           type="button"
+          data-testid="button"
           className="job-item-failure-button"
           onClick={this.getJobData}
         >
